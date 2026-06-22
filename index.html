@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hearthcraft Market — Handmade Goods for the Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       HEADER — matches Image 1 layout
+  ══════════════════════════════════ -->
+  <header class="site-header">
+
+    <!-- Top bar: Logo | Search | Icons -->
+    <div class="header-top">
+      <a href="#" class="brand">
+        <img src="assets/assets/assets/Layout/Brand/logo-colored.png" alt="Brand" class="brand-logo">
+      </a>
+
+      <!-- Search: input first, then category, then button — Image 1 order -->
+      <form class="search-form" role="search" onsubmit="return false;">
+        <input type="search" placeholder="Search hand-thrown mugs, oak boards, wool throws..." aria-label="Search products" />
+        <div class="search-divider"></div>
+        <select aria-label="Filter by category">
+          <option>All category</option>
+          <option>Pottery &amp; Ceramics</option>
+          <option>Woodwork</option>
+          <option>Textiles</option>
+          <option>Candles &amp; Scent</option>
+          <option>Garden &amp; Outdoor</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- Icon actions: Profile, Message, Orders, Cart — vertical icon+label -->
+      <div class="header-actions">
+  <!-- Profile -->
+  <a href="#" class="icon-action">
+    <span class="icon-svg">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+    </span>
+    <span>Profile</span>
+  </a>
+        <!-- Message -->
+  <a href="#" class="icon-action">
+    <span class="icon-svg">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+      </svg>
+    </span>
+    <span>Message</span>
+  </a>
+       <a href="#" class="icon-action">
+  <span class="icon-svg">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+  </span>
+  <span>Orders</span>
+</a>
+         <a href="#" class="icon-action cart-icon">
+    <span class="icon-svg">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 6c.1-.18.16-.39.16-.6 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+      </svg>
+    </span>
+    <span>My cart</span>
+    <span class="cart-count" id="cartCount">0</span>
+  </a>
+      </div>
+    </div>
+
+    <!-- Thin orange/purple accent line under header top -->
+    <div class="header-accent-line"></div>
+
+    <!-- Nav bar: hamburger + links + language/ship-to on right -->
+    <nav class="header-nav">
+      <div class="nav-row" id="navRow">
+        <button class="nav-hamburger" id="navToggle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          All category
+        </button>
+        <a href="#" class="active" id="navHome">Hot offers</a>
+        <a href="#" id="navGiftBoxes">Gift boxes</a>
+        <a href="#" id="navProjects">Projects</a>
+        <a href="#" id="navMenu">Menu item</a>
+        <a href="#" id="navHelp">Help</a>
+
+        <div class="nav-right">
+          <div class="nav-locale">
+            <span>English, USD</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="nav-ship">
+            <span class="flag"></span>
+            <span>Ship to</span>
+            <img src="assets/assets/assets/Layout1/Image/flags/DE@2x.png" alt="DE">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════
+       DYNAMIC PAGE AREA (injected by JS for pages 1-4)
+  ══════════════════════════════════ -->
+  <div id="mainContent"></div>
+
+  <main id="homeContent">
+    <div class="container">
+
+      <!-- ══════════════════════════════════
+           HERO SECTION — 3-column: category rail | banner | account widget
+      ══════════════════════════════════ -->
+      <section class="hero">
+        <div class="hero-grid">
+
+          <!-- Left: Category Rail -->
+          <aside class="category-rail" aria-label="Shop by category">
+            <ul>
+              <li><a href="#" class="active">Pottery &amp; Ceramics</a></li>
+              <li><a href="#">Woodwork</a></li>
+              <li><a href="#">Textiles &amp; Weaving</a></li>
+              <li><a href="#">Candles &amp; Scent</a></li>
+              <li><a href="#">Garden &amp; Outdoor</a></li>
+              <li><a href="#">Kitchen &amp; Table</a></li>
+              <li><a href="#">Lighting</a></li>
+              <li><a href="#">Gift Boxes</a></li>
+              <li><a href="#">More category</a></li>
+            </ul>
+          </aside>
+
+          <!-- Center: Hero Banner — single static banner, no slider -->
+          <div class="hero-banner">
+            <div class="hero-copy">
+              <h1>Latest trending<br><strong>Electronic items</strong></h1>
+              <a href="#" class="btn-learn-more">Learn more</a>
+            </div>
+          </div>
+
+          <!-- Right: Account / Supplier Widget -->
+          <aside class="account-panel">
+            <div class="account-greeting">
+              <!-- Plain SVG user avatar — no letters -->
+              <div class="user-avatar-wrap">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
+              </div>
+              <div class="greeting-text">
+                <strong>Hi, user</strong>
+                <span>let's get started</span>
+              </div>
+            </div>
+            <a href="#" class="btn-join">Join now</a>
+            <a href="#" class="btn-login">Log in</a>
+            <div class="promo-card orange">
+              <span>Get US $10 off with a new supplier</span>
+            </div>
+            <div class="promo-card teal">
+              <span>Send quotes with supplier preferences</span>
+            </div>
+          </aside>
+
+        </div>
+      </section>
+
+      <div class="stitched-divider"></div>
+
+      <!-- Deals Section -->
+      <section class="deals-section">
+        <div class="deals-heading">
+          <h3>Deals and offers</h3>
+          <p>Hygiene equipments</p>
+          <div class="countdown" id="countdown" aria-label="Sale countdown">
+            <div class="unit"><span id="cd-days">04</span><small>Days</small></div>
+            <div class="unit"><span id="cd-hours">13</span><small>Hour</small></div>
+            <div class="unit"><span id="cd-mins">46</span><small>Min</small></div>
+            <div class="unit"><span id="cd-secs">38</span><small>Sec</small></div>
+          </div>
+        </div>
+        <div class="deal-cards">
+          <div class="deal-card">
+            <div class="deal-thumb">
+              <img src="assets/assets/assets/Image/tech/8.png" alt="Smart watches" />
+            </div>
+            <p>Smart watches</p>
+            <span class="deal-tag">-25%</span>
+          </div>
+          <div class="deal-card">
+            <div class="deal-thumb">
+              <img src="assets/assets/assets/Image/tech/image 34.png" alt="Laptops" />
+            </div>
+            <p>Laptops</p>
+            <span class="deal-tag">-15%</span>
+          </div>
+          <div class="deal-card">
+            <div class="deal-thumb">
+              <img src="assets/assets/assets/Image/tech/6.png" alt="GoPro cameras" />
+            </div>
+            <p>GoPro cameras</p>
+            <span class="deal-tag">-40%</span>
+          </div>
+          <div class="deal-card">
+            <div class="deal-thumb">
+              <img src="assets/assets/assets/Image/tech/image 29.png" alt="Headphones" />
+            </div>
+            <p>Headphones</p>
+            <span class="deal-tag">-25%</span>
+          </div>
+          <div class="deal-card">
+            <div class="deal-thumb">
+              <img src="assets/assets/assets/Image/tech/image 23.png" alt="Canon cameras" />
+            </div>
+            <p>Canon cameras</p>
+            <span class="deal-tag">-25%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Panel 1: Home and outdoor -->
+      <section class="cat-panel">
+        <div class="cat-hero">
+          <h3>Home and<br>outdoor</h3>
+          <a href="#" class="btn-source" style="margin-top:auto;">Source now</a>
+        </div>
+        <div class="cat-grid">
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Soft chairs</span><small>From</small><small class="price">USD 19</small></div><img src="assets/assets/assets/Image/interior/1.png" alt="Soft chairs"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Lamp and Lights</span><small>From</small><small class="price">USD 19</small></div><img src="assets/assets/assets/Image/interior/6.png" alt="Lamp"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Kitchen dishes</span><small>From</small><small class="price">USD 19</small></div><img src="assets/assets/assets/Image/interior/image 93.png" alt="Kitchen dishes"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Smart watches</span><small>From</small><small class="price">USD 19</small></div><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop" alt="Smart watches"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Kitchen mixer</span><small>From</small><small class="price">USD 100</small></div><img src="assets/assets/assets/Image/interior/9.png" alt="Kitchen mixer"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Blenders</span><small>From</small><small class="price">USD 39</small></div><img src="assets/assets/assets/Image/interior/8.png" alt="Blenders"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Home appliance</span><small>From</small><small class="price">USD 19</small></div><img src="assets/assets/assets/Image/interior/7.png" alt="Home appliance"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Coffee maker</span><small>From</small><small class="price">USD 10</small></div><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=80&h=80&fit=crop" alt="Coffee maker"/></a>
+        </div>
+      </section>
+
+      <!-- Category Panel 2: Consumer electronics -->
+      <section class="cat-panel">
+        <div class="cat-heroo">
+          <h3>Consumer<br>electronics<br>and gadgets</h3>
+          <a href="#" class="btn-source" style="margin-top:auto;">Source now</a>
+        </div>
+        <div class="cat-grid">
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Smart watches</span><small>From</small><small class="price">USD 19</small></div><img src="assets/assets/assets/Image/tech/8.png" alt="Smart watches"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Cameras</span><small>From</small><small class="price">USD 89</small></div><img src="assets/assets/assets/Image/tech/6.png" alt="Cameras"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Headphones</span><small>From</small><small class="price">USD 10</small></div><img src="assets/assets/assets/Image/tech/image 86.png" alt="Headphones"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Electric Kattle</span><small>From</small><small class="price">USD 90</small></div><img src="assets/assets/assets/Layout/alibaba/Image/tech/image 85.png" alt="Kettle"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Headphones</span><small>From</small><small class="price">USD 35</small></div><img src="assets/assets/assets/Image/tech/image 29.png" alt="Gaming set"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Laptops &amp; PC</span><small>From</small><small class="price">USD 340</small></div><img src="assets/assets/assets/Image/tech/image 34.png" alt="Laptops"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Smartphones</span><small>From</small><small class="price">USD 19</small></div><img src="assets/assets/assets/Image/tech/image 32.png" alt="Smartphones"/></a>
+          <a href="#" class="cat-item"><div class="cat-item-info"><span>Mobile Phones</span><small>From</small><small class="price">USD 240</small></div><img src="assets/assets/assets/Image/tech/image 33.png" alt="Phones"/></a>
+        </div>
+      </section>
+
+      <!-- Supplier Inquiry Banner -->
+      <section class="inquiry-banner">
+        <div class="inquiry-text">
+          <h2>An easy way to send<br>requests to all suppliers</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+        <div class="inquiry-form-box">
+          <h4>Send quote to suppliers</h4>
+          <input type="text" placeholder="What item you need?" class="inq-input" />
+          <textarea placeholder="Type more details" class="inq-textarea"></textarea>
+          <div class="inq-row">
+            <input type="number" placeholder="Quantity" class="inq-qty" />
+            <select class="inq-unit">
+              <option>Pcs</option>
+              <option>Kg</option>
+              <option>Box</option>
+              <option>Set</option>
+            </select>
+          </div>
+          <button class="btn-inquiry">Send inquiry</button>
+        </div>
+      </section>
+
+      <!-- Recommended Items -->
+      <section class="recommended-section">
+        <h3>Recommended items</h3>
+        <div class="rec-grid" id="recGrid">
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Layout/alibaba/Image/cloth/Bitmap.png" alt="T-shirt"/></div><div class="rec-info"><span class="rec-price">$10.30</span><p>T-shirts with multiple colors, for men</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Layout/alibaba/Image/cloth/2 1.png" alt="Jacket"/></div><div class="rec-info"><span class="rec-price">$10.30</span><p>Brown Winter coat Medium sized</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Layout/alibaba/Image/cloth/image 30.png" alt="Coat"/></div><div class="rec-info"><span class="rec-price">$12.50</span><p>Blue coat of different sizes</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Layout/alibaba/Image/cloth/image 24.png" alt="Bag"/></div><div class="rec-info"><span class="rec-price">$34.00</span><p>Leather wallet</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Layout/alibaba/Image/cloth/image 26.png" alt="Backpack"/></div><div class="rec-info"><span class="rec-price">$99.00</span><p>Blue bag of jeans cloth</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png" alt="Jeans"/></div><div class="rec-info"><span class="rec-price">$9.99</span><p>Jeans and pants for men</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Layout/alibaba/Image/tech/image 86.png" alt="Headphones"/></div><div class="rec-info"><span class="rec-price">$8.99</span><p>Headset for gaming with mic</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Layout/alibaba/Image/cloth/image 26.png" alt="Smartwatch"/></div><div class="rec-info"><span class="rec-price">$10.30</span><p>Blue bag of jeans cloth for men</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Image/interior/3.png" alt="Pot"/></div><div class="rec-info"><span class="rec-price">$10.30</span><p>Home material</p></div></div>
+          <div class="rec-card"><div class="rec-img"><img src="assets/assets/assets/Image/tech/image 85.png" alt="Phone"/></div><div class="rec-info"><span class="rec-price">$80.95</span><p>Electric kattles in different colors</p></div></div>
+        </div>
+        <div class="load-more-wrap">
+          <button class="btn-outline" id="loadMoreBtn">Load more items ↓</button>
+        </div>
+      </section>
+
+      <div class="stitched-divider"></div>
+
+      <!-- Extra Services -->
+      <section class="extra-services">
+        <h3>Our extra services</h3>
+        <div class="services-cards">
+          <div class="svc-card"><img src="assets/assets/assets/Image/backgrounds/Mask group.png" alt="Source from Industry Hubs"/><div class="svc-icon-wrap"><span>🔍</span></div><p>Source from Industry Hubs</p></div>
+          <div class="svc-card"><img src="assets/assets/assets/Image/backgrounds/Mask group (1).png" alt="Customize Your Products"/><div class="svc-icon-wrap"><span>📦</span></div><p>Customize Your Products</p></div>
+          <div class="svc-card"><img src="assets/assets/assets/Image/backgrounds/image 106.png" alt="Fast reliable shipping"/><div class="svc-icon-wrap"><span>➤</span></div><p>Fast, reliable shipping by ocean or air</p></div>
+          <div class="svc-card"><img src="assets/assets/assets/Image/backgrounds/image 107.png" alt="Product monitoring"/><div class="svc-icon-wrap"><span>🛡</span></div><p>Product monitoring and inspection</p></div>
+        </div>
+      </section>
+
+      <!-- Suppliers by Region -->
+      <section class="suppliers-region">
+        <h3>Suppliers by region</h3>
+        <div class="region-grid">
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/AE@2x.png" alt="AE"/><div><span>Arabic Emirates</span><small>shopname.ae</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/icon.png" alt="AU"/><div><span>Australia</span><small>shopname.ae</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/US@2x.png" alt="US"/><div><span>United States</span><small>shopname.ae</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/RU@2x.png" alt="RU"/><div><span>Russia</span><small>shopname.ru</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/IT@2x.png" alt="IT"/><div><span>Italy</span><small>shopname.it</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/DK@2x.png" alt="DK"/><div><span>Denmark</span><small>denmark.com.dk</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/FR@2x.png" alt="FR"/><div><span>France</span><small>shopname.com.fr</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/AE@2x.png" alt="AE"/><div><span>Arabic Emirates</span><small>shopname.ae</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/CN@2x.png" alt="CN"/><div><span>China</span><small>shopname.ae</small></div></a>
+          <a href="#" class="region-item"><img src="assets/assets/assets/Layout1/Image/flags/GB@2x.png" alt="GB"/><div><span>Great Britain</span><small>shopname.co.uk</small></div></a>
+        </div>
+      </section>
+
+      <!-- Newsletter Strip -->
+      <section class="newsletter-strip">
+        <h3>Subscribe on our newsletter</h3>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+        <form class="newsletter-strip-form" onsubmit="return false;">
+          <span class="nl-icon">✉</span>
+          <input type="email" placeholder="Email" aria-label="Email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a href="#" class="footer-brand-logo">
+          <img src="assets/assets/assets/Layout/Brand/logo-colored.png" alt="Brand" class="brand-logo" />
+        </a>
+        <p>Best information about the company gies here but now lorem ipsum is</p>
+        <div class="footer-socials">
+          <a href="#" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" title="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43 1s-2 .87-3.29 1.1A4.52 4.52 0 0 0 11.6 6.5a12.87 12.87 0 0 1-9.34-4.73s-4 8.9 5 12.9a13 13 0 0 1-7.5 2C9 20 19 14 16.52 3.36A4.5 4.5 0 0 0 23 3z"/></svg></a>
+          <a href="#" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col"><h5>About</h5><a href="#">About Us</a><a href="#">Find store</a><a href="#">Categories</a><a href="#">Blogs</a></div>
+      <div class="footer-col"><h5>Partnership</h5><a href="#">About Us</a><a href="#">Find store</a><a href="#">Categories</a><a href="#">Blogs</a></div>
+      <div class="footer-col"><h5>Information</h5><a href="#">Help Center</a><a href="#">Money Refund</a><a href="#">Shipping</a><a href="#">Contact us</a></div>
+      <div class="footer-col"><h5>For users</h5><a href="#">Login</a><a href="#">Register</a><a href="#">Settings</a><a href="#">My Orders</a></div>
+      <div class="footer-col footer-app-col">
+        <h5>Get app</h5>
+        <a href="#" class="app-badge"><img src="assets/assets/assets/Layout/Misc/market-button.png" alt="App Store" /></a>
+        <a href="#" class="app-badge"><img src="assets/assets/assets/Layout/Misc/Group.png" alt="Google Play" /></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2023 Ecommerce.</span>
+      <div class="footer-lang">
+        <img src="https://flagcdn.com/us.svg" alt="US" style="width:20px;height:14px;border-radius:2px;object-fit:cover;" />
+        <span>English</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
