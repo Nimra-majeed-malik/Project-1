@@ -182,8 +182,8 @@ img { display: block; }
   display: flex;
   align-items: center;
   gap: 7px;
-  background: var(--blue-dark);
-  color: #fff;
+  background: var(--white);
+  color: solid black;
   border: none;
   border-radius: 0;
   padding: 11px 16px;
