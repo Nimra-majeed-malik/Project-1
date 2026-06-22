@@ -229,6 +229,130 @@ function wireNavLinks() {
 }
 
 /* =============================================================
+   MOBILE SIDEBAR — inject HTML + wire open/close on every page
+============================================================= */
+function injectMobileSidebar() {
+  /* Build sidebar HTML only once */
+  if (document.getElementById('mobile-sidebar')) return;
+
+  var sidebarHTML = [
+    '<div class="sidebar-overlay" id="sidebar-overlay"></div>',
+    '<aside class="mobile-sidebar" id="mobile-sidebar" aria-label="Navigation menu" role="dialog" aria-modal="true">',
+    '  <div class="sidebar-head">',
+    '    <div class="sidebar-user">',
+    '      <div class="sidebar-avatar">',
+    '        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>',
+    '      </div>',
+    '      <div class="sidebar-auth">',
+    '        <a href="#" id="sb-signin">Sign in</a>',
+    '        <a href="#" id="sb-register">Register</a>',
+    '      </div>',
+    '    </div>',
+    '    <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">',
+    '      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
+    '    </button>',
+    '  </div>',
+
+    '  <ul class="sidebar-nav">',
+    '    <li><a href="' + PAGES.home + '" id="sb-home">',
+    '      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>',
+    '      Home</a></li>',
+    '    <li><a href="' + PAGES.grid + '" id="sb-categories">',
+    '      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
+    '      Categories</a></li>',
+    '    <li><button id="sb-favorites">',
+    '      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>',
+    '      Favorites</button></li>',
+    '    <li><a href="' + PAGES.cart + '" id="sb-orders">',
+    '      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>',
+    '      My orders</a></li>',
+    '  </ul>',
+
+    '  <ul class="sidebar-footer">',
+    '    <li><button id="sb-lang">',
+    '      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>',
+    '      English | USD</button></li>',
+    '    <li><button id="sb-contact">',
+    '      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9a1.9 1.9 0 01-2 2c-8.7-.5-15.4-7.2-15.9-15.9a1.9 1.9 0 012-2h3.5a2 2 0 012 1.7 12 12 0 00.65 2.6 2 2 0 01-.45 2.1L10.1 8.1a16 16 0 006.8 6.8l1.7-1.7a2 2 0 012.1-.45 12 12 0 002.6.65 2 2 0 011.7 2v3.45z"/></svg>',
+    '      Contact us</button></li>',
+    '    <li><button id="sb-about">',
+    '      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+    '      About</button></li>',
+    '    <li><button id="sb-user-agreement">',
+    '      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+    '      User agreement</button></li>',
+    '    <li><button id="sb-partnership">',
+    '      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
+    '      Partnership</button></li>',
+    '    <li><button id="sb-privacy">',
+    '      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    '      Privacy policy</button></li>',
+    '  </ul>',
+    '</aside>'
+  ].join('\n');
+
+  document.body.insertAdjacentHTML('afterbegin', sidebarHTML);
+
+  /* Inject mobile-menu-btn into every site-header that doesn't have one */
+  $$('.site-header .header-top').forEach(function (headerTop) {
+    if (headerTop.querySelector('.mobile-menu-btn')) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'mobile-menu-btn';
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.setAttribute('id', 'mobile-menu-btn');
+    btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    headerTop.insertBefore(btn, headerTop.firstChild);
+
+    /* Also inject mobile cart icon after brand */
+    var brand = headerTop.querySelector('.brand');
+    if (brand) {
+      var mCart = document.createElement('a');
+      mCart.className = 'mobile-header-cart';
+      mCart.href = PAGES.cart;
+      mCart.setAttribute('aria-label', 'Cart');
+      mCart.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.56L23 6H6"/></svg><span class="cart-count">0</span>';
+      brand.after(mCart);
+    }
+  });
+
+  /* Wire open/close */
+  function openSidebar() {
+    document.getElementById('mobile-sidebar').classList.add('open');
+    document.getElementById('sidebar-overlay').classList.add('active');
+    document.body.classList.add('sidebar-open');
+  }
+  function closeSidebar() {
+    document.getElementById('mobile-sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').classList.remove('active');
+    document.body.classList.remove('sidebar-open');
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#mobile-menu-btn, .mobile-menu-btn')) openSidebar();
+    if (e.target.closest('#sidebar-close'))   closeSidebar();
+    if (e.target.closest('#sidebar-overlay')) closeSidebar();
+  });
+
+  /* Close on Escape */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeSidebar();
+  });
+
+  /* Cosmetic toast for sidebar buttons */
+  $$('#sb-favorites,#sb-lang,#sb-contact,#sb-about,#sb-user-agreement,#sb-partnership,#sb-privacy,#sb-signin,#sb-register').forEach(function (el) {
+    el.addEventListener('click', function () {
+      closeSidebar();
+      showToast('Coming soon!', 'info');
+    });
+  });
+  /* Close sidebar when navigating via sidebar links */
+  $$('#sb-home,#sb-categories,#sb-orders').forEach(function (el) {
+    el.addEventListener('click', closeSidebar);
+  });
+}
+
+/* =============================================================
    HEADER  (shared)
 ============================================================= */
 function initHeader() {
@@ -255,7 +379,10 @@ function initHeader() {
     });
   });
 
-  /* Hamburger / mobile nav toggle */
+  /* ── Inject mobile sidebar into every page ── */
+  injectMobileSidebar();
+
+  /* Hamburger / mobile nav toggle (desktop nav row, kept for non-mobile) */
   $$('.nav-hamburger').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var row = btn.closest('.nav-row');
