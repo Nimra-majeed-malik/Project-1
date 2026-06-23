@@ -182,8 +182,8 @@ img { display: block; }
   display: flex;
   align-items: center;
   gap: 7px;
-  background: var(--blue-dark);
-  color: #fff;
+  background: var(--white);
+  color: black;
   border: none;
   border-radius: 0;
   padding: 11px 16px;
@@ -448,8 +448,9 @@ img { display: block; }
   font-size: 12px;
   color: var(--text-mid);
 }
-
-.filter-tag { display: flex; align-items: center; gap: 4px; }
+.filter-tag { 
+  background-color: var(--blue-dark);
+  display: flex; align-items: center; gap: 4px; }
 .tag-check {
   width: 16px;
   height: 16px;
@@ -459,7 +460,7 @@ img { display: block; }
   align-items: center;
   justify-content: center;
   font-size: 9px;
-  color: var(--blue);
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -594,7 +595,7 @@ img { display: block; }
   color: var(--text-soft);
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkitline-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -622,28 +623,28 @@ img { display: block; }
 }
 
 .wishlist-btn {
-  background: none;
+  background: white;
   border: 1px solid var(--border);
-  border-radius: 50%;
+  border-radius: 6%;
   width: 34px;
   height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--text-soft);
+  color: var(--blue);
   transition: border-color .2s, color .2s;
 }
-.wishlist-btn:hover { border-color: var(--red); color: var(--red); }
+.wishlist-btn:hover { border-color: var(--blue); color: var(--blue); }
 
 /* ===========================
    PAGINATION
    =========================== */
 .pagination-row {
   display: flex;
-  align-items: center;
+  align-items: end; /* keeps items at bottom vertically */
+  justify-content: flex-end; /* pushes whole row to right */
   gap: 6px;
-  padding: 10px 0 4px;
 }
 
 .page-show-wrapper {
@@ -688,48 +689,50 @@ img { display: block; }
    NEWSLETTER STRIP
    =========================== */
 .newsletter-strip {
-  background: linear-gradient(90deg, #1565c0 0%, #1976d2 60%, #42a5f5 100%);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 28px 40px;
-  margin: 24px 0 0;
-  flex-wrap: wrap;
+  background-color: #eaf0fb;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
 }
-
-.newsletter-text h3 {
+.newsletter-strip h3 {
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 4px;
+  color: #1a1a1a;
+  margin-bottom: 6px;
 }
-.newsletter-text p {
+.newsletter-strip p {
   font-size: 13px;
-  color: rgba(255,255,255,.82);
+  color: var(--muted);
+  margin-bottom: 20px;
 }
 
 .newsletter-strip-form {
   display: flex;
   gap: 0;
-  flex-shrink: 0;
+  justify-content: center;
+  max-width: 480px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
 }
 .nl-input-wrap {
+  flex: 1;
   display: flex;
   align-items: center;
-  background: #fff;
-  border-radius: 4px 0 0 4px;
-  padding: 0 12px;
   gap: 8px;
+  padding: 0 12px;
+  background: #fff;
 }
-.nl-icon { font-size: 15px; color: #aaa; }
+.nl-icon { color: var(--muted); font-size: 14px; }
 .nl-input-wrap input {
+  flex: 1;
   border: none;
   outline: none;
-  padding: 10px 0;
   font-size: 13px;
-  width: 220px;
-  color: var(--text-dark);
+  height: 42px;
   background: transparent;
 }
 .nl-input-wrap input::placeholder { color: #bbb; }
@@ -737,12 +740,13 @@ img { display: block; }
   background: var(--blue);
   color: #fff;
   border: none;
-  border-radius: 0 4px 4px 0;
-  padding: 10px 22px;
+  border-radius: 0;
+  padding: 10px 26px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: background .2s;
+  white-space: nowrap;
 }
 .newsletter-strip-form button:hover { background: var(--blue-dark); }
 

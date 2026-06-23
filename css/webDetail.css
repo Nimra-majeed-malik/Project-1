@@ -763,19 +763,116 @@ img { display: block; }
 }
 
 /* ===========================
-   RESPONSIVE
+   RESPONSIVE — Full breakpoint coverage
    =========================== */
+
+/* ── Large tablets (≤1100px) ── */
+@media (max-width: 1100px) {
+  .product-card { grid-template-columns: 260px 1fr 200px; gap: 16px; }
+  .header-actions { padding-left: 2rem; gap: 1.5rem; }
+  .search-form { margin-left: 2rem; }
+  .related-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-inner { grid-template-columns: 180px 1fr 1fr 1fr 140px; gap: 16px; }
+}
+
+/* ── Tablets (≤1024px) ── */
 @media (max-width: 1024px) {
-  .product-card { grid-template-columns: 240px 1fr; }
+  .product-card { grid-template-columns: 220px 1fr; gap: 16px; }
+  .supplier-col { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 16px; }
+  .supplier-col > * { flex: 1 1 220px; }
+  .related-grid { grid-template-columns: repeat(3, 1fr); }
+  .lower-section { grid-template-columns: 1fr 220px; }
+  .footer-inner { grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+}
+
+/* ── Landscape phones / small tablets (≤900px) ── */
+@media (max-width: 900px) {
+  .header-actions { padding-left: 1rem; gap: 1.25rem; }
+  .search-form { margin-left: 1rem; }
+  .icon-action span { display: none; }
+  .nav-right { display: none; }
+  .nav-row { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .nav-row::-webkit-scrollbar { display: none; }
+
+  .product-card { grid-template-columns: 1fr 1fr; }
+  .gallery-col { grid-column: 1; }
+  .info-col { grid-column: 2; }
   .supplier-col { grid-column: 1 / -1; }
   .related-grid { grid-template-columns: repeat(3, 1fr); }
-  .footer-inner { grid-template-columns: 1fr 1fr 1fr; }
 }
+
+/* ── Large phones landscape (≤768px) ── */
 @media (max-width: 768px) {
-  .product-card { grid-template-columns: 1fr; }
-  .lower-section { grid-template-columns: 1fr; }
+  /* Header wraps */
+  .header-top { flex-wrap: wrap; padding: 10px 16px; gap: 10px; }
+  .brand { flex-shrink: 0; }
+  .search-form { order: 3; flex: 100%; margin-left: 0; max-width: 100%; }
+  .header-actions { margin-left: auto; padding-left: 0; gap: 14px; }
+
+  /* Product card: single column stack */
+  .product-card { grid-template-columns: 1fr; gap: 16px; padding: 16px; }
+  .gallery-col { grid-column: 1; }
+  .info-col { grid-column: 1; }
+  .supplier-col { grid-column: 1; flex-direction: column; }
+
+  /* Main image */
+  .main-img-box { height: 220px; }
+
+  /* Lower section */
+  .lower-section { grid-template-columns: 1fr; gap: 16px; }
+  .you-may-like { display: none; } /* moved to below tabs on mobile */
+
+  /* Related */
+  .related-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  /* Promo */
+  .promo-banner { flex-direction: column; gap: 16px; text-align: center; padding: 20px; }
+  .promo-btn { align-self: center; }
+
+  /* Footer */
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 16px; padding: 24px 16px; }
+}
+
+/* ── Phones (≤600px) ── */
+@media (max-width: 600px) {
+  .header-top { padding: 8px 12px; gap: 8px; }
+  .brand-logo { height: 28px; }
+  .icon-action span { display: none; }
+
+  /* Breadcrumb */
+  .breadcrumb-bar { padding: 0 12px; font-size: 12px; margin-top: 8px; }
+
+  /* Main wrap */
+  .main-wrap { padding: 0 12px; margin-top: 10px; }
+
+  /* Product card */
+  .product-card { padding: 12px; gap: 12px; }
+  .main-img-box { height: 200px; }
+  .thumb { width: 36px; height: 36px; }
+  .prod-name { font-size: 16px; }
+
+  /* Tabs */
+  .tab-btn { padding: 10px 12px; font-size: 12px; }
+  .tab-pane { padding: 14px; }
+
+  /* Related */
+  .related-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .rel-item img { height: 100px; }
+
+  /* Promo */
+  .promo-banner { padding: 16px 12px; border-radius: var(--radius); }
+  .promo-title { font-size: 17px; }
+
+  /* Footer */
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px 12px; }
+  .footer-bottom { padding: 10px 12px; flex-direction: column; gap: 4px; text-align: center; }
+}
+
+/* ── Small phones (≤400px) ── */
+@media (max-width: 400px) {
   .related-grid { grid-template-columns: repeat(2, 1fr); }
-  .header-top { flex-wrap: wrap; }
-  .footer-inner { grid-template-columns: 1fr 1fr; }
-  .promo-banner { flex-direction: column; gap: 16px; text-align: center; }
+  .product-card { padding: 10px; }
+  .main-img-box { height: 180px; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .brand-logo { height: 24px; }
 }

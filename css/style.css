@@ -1357,22 +1357,201 @@ background-color: #E3F2FD;
 }
 
 /* ═══════════════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — Full breakpoint coverage
 ═══════════════════════════════════════════════════ */
+
+/* ── Large tablets / small laptops (≤1200px) ── */
+@media (max-width: 1200px) {
+  .hero-grid,
+  .deals-section,
+  .cat-panel,
+  .promo-banner,
+  .inquiry-banner,
+  .recommended-section,
+  .extra-services,
+  .suppliers-region,
+  .cta-banner {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container { padding: 0 1.25rem; }
+  .footer-inner { grid-template-columns: 180px repeat(3, 1fr) 140px; gap: 1.25rem; }
+}
+
+/* ── Tablets (≤1024px) ── */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 200px 1fr 200px; }
-}
-@media (max-width: 800px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .category-rail, .account-panel { display: none; }
-  .deals-section, .cta-banner { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 180px 1fr 180px; height: auto; min-height: 340px; }
+  .header-top { padding: 0.75rem 1rem; }
+  .search-form { margin-left: 1rem; }
+  .header-actions { padding-left: 1rem; gap: 1.25rem; }
+
+  .deals-section { height: auto; padding: 1.25rem 1.5rem; }
+  .deal-cards { overflow-x: auto; padding-bottom: 4px; }
+
+  .cat-panel { height: auto; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); }
+
+  .inquiry-banner { height: auto; padding: 2rem; }
+  .inquiry-form-box { padding: 1.25rem; }
+
+  .rec-grid { grid-template-columns: repeat(4, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .nav-right { display: none; }
+  .services-cards { grid-template-columns: repeat(2, 1fr); height: auto; }
+
+  .footer-inner { grid-template-columns: 160px repeat(2, 1fr) 130px; gap: 1rem; }
+  .suppliers-region { padding: 1rem 1.25rem; }
+  .region-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .promo-banner { padding: 1.5rem 2rem; }
+  .promo-banner-right { gap: 1.5rem; }
+
+  .cta-banner { padding: 2rem; gap: 2rem; }
 }
-@media (max-width: 550px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .header-top { flex-wrap: wrap; }
-  .search-form { width: 100%; order: 3; }
+
+/* ── Small tablets / large phones landscape (≤800px) ── */
+@media (max-width: 800px) {
+  /* Header */
+  .header-top { flex-wrap: wrap; padding: 0.75rem 1rem; gap: 0.75rem; }
+  .brand { flex-shrink: 0; }
+  .search-form { order: 3; flex: 100%; margin-left: 0; max-width: 100%; }
+  .header-actions { padding-left: 0; gap: 1rem; margin-left: auto; }
+  .icon-action span:last-child { display: none; }
+
+  /* Nav */
+  .nav-right { display: none; }
+  .nav-row { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .nav-row::-webkit-scrollbar { display: none; }
+
+  /* Hero */
+  .hero-grid { grid-template-columns: 1fr; height: auto; }
+  .category-rail { display: none; }
+  .account-panel { display: none; }
+  .hero-banner { min-height: 280px; }
+  .hero-copy { max-width: 70%; padding: 2rem; }
+
+  /* Deals */
+  .deals-section { grid-template-columns: 1fr; height: auto; gap: 1rem; }
+  .deals-heading { text-align: center; }
+  .deal-cards { justify-content: flex-start; overflow-x: auto; gap: 0; padding-bottom: 8px; }
+  .deal-card { min-width: 110px; flex-shrink: 0; }
+
+  /* Cat panels */
+  .cat-panel { grid-template-columns: 1fr; height: auto; }
+  .cat-hero, .cat-heroo { min-height: 180px; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); }
+
+  /* Promo banner */
+  .promo-banner { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+  .promo-banner-left p { max-width: 100%; }
+  .promo-banner-right { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+
+  /* Inquiry */
+  .inquiry-banner { grid-template-columns: 1fr; height: auto; padding: 2rem 1.5rem; gap: 1.5rem; }
+  .inquiry-text h2 { font-size: 1.4rem; }
+  .inquiry-form-box { max-width: 100%; }
+
+  /* Recommended / Services */
+  .rec-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-cards { grid-template-columns: repeat(2, 1fr); height: auto; }
+  .extra-services { width: 100%; }
+
+  /* Suppliers region */
+  .suppliers-region { width: 100%; }
+  .region-grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* CTA banner */
+  .cta-banner { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; text-align: center; width: 100%; }
+  .trust-badges { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+
+  /* Newsletter */
+  .newsletter-strip { margin: 1.5rem 0 0; width: 100%; padding: 2rem 1rem; }
+
+  /* Footer */
+  .footer-inner { grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+  .footer-brand-col { grid-column: 1 / -1; }
+}
+
+/* ── Phones (≤600px) ── */
+@media (max-width: 600px) {
+  /* Header */
+  .header-top { padding: 0.65rem 0.75rem; gap: 0.5rem; }
+  .brand-logo { height: 30px; }
+  .search-form input[type="search"] { font-size: 0.85rem; padding: 0.45rem 0.75rem; }
+  .search-form select { display: none; }
+  .search-divider { display: none; }
   .header-actions { gap: 0.75rem; }
+  .icon-action { font-size: 0.7rem; }
+  .icon-action svg { width: 20px; height: 20px; }
+
+  /* Nav */
+  .nav-hamburger { font-size: 0.8rem; padding: 0.55rem 0.75rem 0.55rem 0; }
+  .nav-row a { font-size: 0.82rem; padding: 0.55rem 0.65rem; }
+
+  /* Hero */
+  .hero-banner { min-height: 220px; }
+  .hero-copy { max-width: 90%; padding: 1.25rem; }
+  .hero-copy h1 { font-size: 1.15rem; }
+  .hero-copy h1 strong { font-size: 1.3rem; }
+
+  /* Deals */
+  .deals-section { padding: 1rem; }
+  .deal-thumb { width: 80px; height: 80px; }
+
+  /* Cat panels */
+  .cat-hero, .cat-heroo { min-height: 140px; padding: 1rem; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-item img { width: 48px; height: 48px; }
+
+  /* Promo */
+  .promo-banner { padding: 1.25rem 1rem; }
+  .promo-banner-left h2 { font-size: 1.2rem; }
+  .promo-trust-icon { width: 36px; height: 36px; }
+
+  /* Inquiry */
+  .inquiry-banner { padding: 1.25rem 1rem; }
+  .inquiry-text h2 { font-size: 1.2rem; }
+  .inq-row { grid-template-columns: 1fr; }
+
+  /* Recommended */
+  .rec-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .recommended-section { width: 100%; }
+
+  /* Services */
+  .services-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .services-cards { grid-template-columns: repeat(2, 1fr); height: auto; }
+
+  /* Suppliers */
+  .region-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* CTA */
+  .cta-banner { padding: 1.25rem 1rem; }
+  .cta-banner h3 { font-size: 1.35rem; }
+
+  /* Newsletter */
+  .newsletter { padding: 1.75rem 1rem; }
+  .newsletter-strip { padding: 1.5rem 0.75rem; }
+  .newsletter-strip-form { flex-direction: column; border-radius: 8px; overflow: visible; background: transparent; border: none; gap: 8px; }
+  .nl-input-wrap { border: 1px solid #c5d8f5; border-radius: 6px; background: #fff; padding: 0 0.75rem; }
+  .newsletter-strip-form button { width: 100%; border-radius: 6px; margin: 0; padding: 0.75rem; }
+
+  /* Footer */
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 1rem; padding: 0 1rem 1.5rem; }
+  .footer-brand-col { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; padding: 0.75rem 1rem; }
+}
+
+/* ── Small phones (≤400px) ── */
+@media (max-width: 400px) {
+  .header-top { padding: 0.5rem; }
+  .brand-logo { height: 26px; }
+  .rec-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-cards { grid-template-columns: 1fr 1fr; }
+  .hero-copy { max-width: 100%; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .region-grid { grid-template-columns: repeat(2, 1fr); }
   .icon-action span:last-child { display: none; }
 }
