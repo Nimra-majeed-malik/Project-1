@@ -255,13 +255,35 @@ function initHeader() {
     });
   });
 
-  /* Hamburger / mobile nav toggle */
+  /* "All category" / "Menu" button → open slide-in sidebar (all pages) */
   $$('.nav-hamburger').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var row = btn.closest('.nav-row');
-      if (row) row.classList.toggle('nav-open');
+      var sidebar = document.getElementById('catSidebar');
+      var overlay = document.getElementById('catOverlay');
+      if (sidebar) sidebar.classList.add('open');
+      if (overlay) overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
     });
   });
+
+  /* Close sidebar: X button */
+  var _csClose = document.getElementById('catSidebarClose');
+  if (_csClose) _csClose.addEventListener('click', _closeSidebar);
+
+  /* Close sidebar: overlay click */
+  var _csOverlay = document.getElementById('catOverlay');
+  if (_csOverlay) _csOverlay.addEventListener('click', _closeSidebar);
+
+  /* Close sidebar: Escape key */
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') _closeSidebar(); });
+
+  function _closeSidebar() {
+    var s = document.getElementById('catSidebar');
+    var o = document.getElementById('catOverlay');
+    if (s) s.classList.remove('open');
+    if (o) o.classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
   /* Nav locale dropdown (English, USD) — cosmetic toggle */
   $$('.nav-locale').forEach(function (el) {
